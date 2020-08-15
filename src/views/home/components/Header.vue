@@ -6,10 +6,12 @@
     <div class="header-input">
       <span class="iconfont">&#xe632;</span>输入城市/景点/游玩主题
     </div>
-    <div class="header-right">
-      城市
-      <span class="iconfont arrow-icon">&#xe62d;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        城市
+        <span class="iconfont arrow-icon">&#xe62d;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -22,7 +24,7 @@ export default {
 <style scoped >
 .header {
   display: flex;
-  line-height: 0.86rem;
+  line-height: var(--header-height);
   background: var(--color-background);
   color: #fff;
   /* text-align: center; */
@@ -54,6 +56,7 @@ export default {
   width: 1.24rem;
   text-align: center;
   float: right;
+  color: white;
 }
 
 .header-right .arrow-icon {
