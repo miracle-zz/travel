@@ -14,7 +14,7 @@ import carrousel from './components/Swiper'
 import HomeIcons from './components/HomeIcons'
 import HomeRecommend from './components/HomeRecommend'
 import HomeWeekend from './components/HomeWeekend'
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   name: 'Home',
@@ -26,15 +26,15 @@ export default {
     HomeWeekend
   },
   methods: {
-    getHomeInfo () {
-      axios.get('/api/index.json').then(this.getHomeInfoSucc)
-    },
-    getHomeInfoSucc (res) {
-      console.log(res)
-    }
+    // getHomeInfo () {
+    //   axios.get('/api/index.json').then(this.getHomeInfoSucc)
+    // },
+    // getHomeInfoSucc (res) {
+    //   console.log(res)
+    // }
   },
   mounted () {
-    this.getHomeInfo()
+    // this.getHomeInfo()
   }
 }
 </script>

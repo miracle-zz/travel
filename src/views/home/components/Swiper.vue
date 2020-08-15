@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" alt />
       </swiper-slide>
@@ -12,14 +12,6 @@
 <script>
 export default {
   name: 'carrousel',
-  // data () {
-  //   return {
-  //     swiperOption: {
-  //       pagination: '.swiper-pagination', //引入轮播图页码
-  //       loop: true //启用前后循环（最后一项左滑进入第一项）
-  //     }
-  //   }
-  // }
   data () {
     return {
       swiperList: [{
@@ -34,6 +26,11 @@ export default {
         loop: true
         // Some Swiper option/callback...
       }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.swiperList.length
     }
   }
 }
