@@ -8,7 +8,7 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
-        城市
+        北京
         <span class="iconfont arrow-icon">&#xe62d;</span>
       </div>
     </router-link>
@@ -18,6 +18,9 @@
 <script>
 export default {
   name: 'Header'
+  // props: {
+  //   city: String
+  // }
 }
 </script>
 
