@@ -20,7 +20,6 @@ export default {
   name: 'Home',
   data () {
     return {
-      // city: '',
       swiperList: {
         list: []
       },
