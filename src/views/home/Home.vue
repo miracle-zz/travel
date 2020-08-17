@@ -15,11 +15,13 @@ import HomeIcons from './components/HomeIcons'
 import HomeRecommend from './components/HomeRecommend'
 import HomeWeekend from './components/HomeWeekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
   data () {
     return {
+      lastCity: '',
       swiperList: {
         list: []
       },
@@ -35,9 +37,13 @@ export default {
     HomeRecommend,
     HomeWeekend
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
     getHomeInfo () {
-      axios.get('/mock/index.json').then(this.getHomeInfoSucc)
+      // 请求数据时需要请求具体城市的参数，可以用vuex传递
+      axios.get('/mock/index.json?city=' + this.city).then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       res = res.data
@@ -51,11 +57,14 @@ export default {
     }
   },
   mounted () {
-    // console.log('已被挂载')
+    this.lastCity = this.city
     this.getHomeInfo()
-    //   console.log(this.iconList) // 没有数据
-    //   console.log(this.swiperList.length)
-    //   console.log('挂载完')
+  },
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
